@@ -10,7 +10,7 @@ void StartSinglePlayer(){
 }
 
 void ShowTransitionAnimation(){
-    
+    printf("h");
 }
 
 int currentFrameIndex=0;
