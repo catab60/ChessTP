@@ -34,6 +34,7 @@ ChessPiece createPiece(uint8_t x, uint8_t y, uint8_t id, uint8_t piece, int8_t i
     temp.x = x;
     temp.y = y;
     temp.isWhite = isWhite;
+    temp.numMoves = 0;
     temp.func = &ClickPiece;
     return temp;
 }
@@ -50,8 +51,7 @@ void showMenu(int w, int h, int currentFrameIndex){
 
 
 void ShowTransitionAnimation(int w, int h, int currentFrameIndex){
-    // Fade from 0 -> 255 -> 0 over a cycle
-    const int cycleFrames = 180; // 3 seconds at 60 FPS
+    const int cycleFrames = 180; 
     int frame = currentFrameIndex % cycleFrames;
     float t = (float)frame / (float)(cycleFrames - 1);
     float alphaFactor = (t <= 0.5f) ? (t * 2.0f) : (2.0f - t * 2.0f);
@@ -97,7 +97,6 @@ void drawButton(ButtonStruct button, Vector2 mouse_pos, int fontSize, Color fore
         DrawRectangle(button.x, button.y, button.width, button.height, button.col);
     }
 
-    // Center text inside the button
     Vector2 textSize = MeasureTextEx(GetFontDefault(), button.btnText, (float)fontSize, 10);
     float textX = button.x + (button.width - textSize.x) * 0.5f;
     float textY = button.y + (button.height - textSize.y) * 0.5f;

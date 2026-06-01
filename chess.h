@@ -19,6 +19,10 @@ typedef struct {
     char btnText[20];
 }ButtonStruct;
 
+typedef struct {
+    uint8_t x;
+    uint8_t y;
+} Move;
 
 typedef struct ChessPiece ChessPiece;
 struct ChessPiece{
@@ -27,6 +31,8 @@ struct ChessPiece{
     uint8_t y;
     uint8_t piece; // 1-pion   2-cal   3-nebun   4-tura    5-regina    6-rege    0-empty space
     uint8_t isWhite;
+    Move possibleMoves[28];
+    uint8_t numMoves;
     void (*func)(ChessPiece *piece, Vector2 mouse_pos);
 };
 
