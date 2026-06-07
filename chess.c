@@ -18,10 +18,10 @@ void StartWindowTransition(int targetWindow){
 }
 
 void ClickPiece(ChessPiece *piece, Vector2 mouse_pos){
-    if (!piece) return;
+    if(!piece) return;
     int nx = (int)(mouse_pos.y);
     int ny = (int)(mouse_pos.x);
-    if (nx >= 0 && nx < 8 && ny >= 0 && ny < 8) {
+    if(nx >= 0 && nx < 8 && ny >= 0 && ny < 8){
         piece->x = nx;
         piece->y = ny;
     }
@@ -36,13 +36,14 @@ ChessPiece createPiece(uint8_t x, uint8_t y, uint8_t id, uint8_t piece, int8_t i
     temp.isWhite = isWhite;
     temp.numMoves = 0;
     temp.func = &ClickPiece;
+    temp.hasMoved=0;
     return temp;
 }
 
 void showMenu(int w, int h, int currentFrameIndex){
 
-    for(int i=0; i<10; i++) {
-        for(int j=0; j<8; j++) {
+    for(int i=0; i<10; i++){
+        for(int j=0; j<8; j++){
             Color col = ((i + j) % 2 == 0) ? LIGHTGRAY : DARKGRAY;
             DrawRectangle((i*100+currentFrameIndex)%1000-200,j*100, 100, 100, col);
         }

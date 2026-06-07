@@ -34,6 +34,7 @@ struct ChessPiece{
     Move possibleMoves[28];
     uint8_t numMoves;
     void (*func)(ChessPiece *piece, Vector2 mouse_pos);
+    uint8_t hasMoved;
 };
 
 ChessPiece createPiece(uint8_t x, uint8_t y, uint8_t id, uint8_t piece, int8_t isWhite, ChessPiece refernace);
