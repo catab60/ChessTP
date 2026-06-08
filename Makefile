@@ -14,3 +14,5 @@ all:
 
 clean:
 	rm -f $(OBJ)
+
+# recunosc am facut asta cu gemini 😘
