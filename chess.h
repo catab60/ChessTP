@@ -6,41 +6,33 @@ extern int CurrentWindow;
 extern int TransitionSourceWindow;
 extern int TransitionTargetWindow;
 extern int TransitionFrameCounter;
-
-
 typedef struct {
-    int x;
-    int y;
-    int height;
-    int width;
-    Color col;
-    Color darkcol;
-    void (*func)();
-    char btnText[20];
+    int x;              
+    int y;              
+    int height;         
+    int width;          
+    Color col;          
+    Color darkcol;      
+    void (*func)();     
+    char btnText[20];   
 }ButtonStruct;
-
 typedef struct {
     uint8_t x;
     uint8_t y;
 } Move;
-
 typedef struct ChessPiece ChessPiece;
 struct ChessPiece{
-    uint8_t id;
-    uint8_t x;
-    uint8_t y;
-    uint8_t piece; // 1-pion   2-cal   3-nebun   4-tura    5-regina    6-rege    0-empty space
-    uint8_t isWhite;
-    Move possibleMoves[28];
-    uint8_t numMoves;
-    void (*func)(ChessPiece *piece, Vector2 mouse_pos);
-    uint8_t hasMoved;
+    uint8_t id;         
+    uint8_t x;          
+    uint8_t y;          
+    uint8_t piece;      
+    uint8_t isWhite;    
+    Move possibleMoves[28]; 
+    uint8_t numMoves;   
+    void (*func)(ChessPiece *piece, Vector2 mouse_pos); 
+    uint8_t hasMoved;   
 };
-
 ChessPiece createPiece(uint8_t x, uint8_t y, uint8_t id, uint8_t piece, int8_t isWhite, ChessPiece refernace);
-
-
-
 void showMenu(int w, int h, int currentFrameIndex);
 void ShowTransitionAnimation(int w, int h, int currentFrameIndex);
 void StartWindowTransition(int targetWindow);
